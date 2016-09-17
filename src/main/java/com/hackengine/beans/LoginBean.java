@@ -5,7 +5,7 @@
  */
 package com.hackengine.beans;
 
-import com.hackengine.transactions.Operations;
+import com.hackengine.transactions.Transactions;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -39,6 +39,6 @@ public class LoginBean implements Serializable {
     }
 
     public String login() {
-        return new Operations().logIn(username, password);
+        return new Transactions().logIn(username, password);
     }
 }

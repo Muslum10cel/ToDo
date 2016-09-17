@@ -8,7 +8,7 @@ package com.hackengine.beans;
 import com.hackengine.entities.ToDo;
 import com.hackengine.entities.Users;
 import com.hackengine.tags.Tags;
-import com.hackengine.transactions.Operations;
+import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -22,7 +22,7 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UserBean {
 
-    private Operations operations = null;
+    private Transactions operations = null;
     private Users user = null;
 
     private String title;
@@ -40,7 +40,7 @@ public class UserBean {
 
     @PostConstruct
     public void init() {
-        operations = new Operations();
+        operations = new Transactions();
         user = (Users) SessionUtils.getSession().getAttribute(Tags.LOGGED_USER);
     }
 
@@ -49,7 +49,7 @@ public class UserBean {
     }
 
     public String logOut() {
-        Operations.closeSession();
+        Transactions.closeSession();
         SessionUtils.getSession().invalidate();
         return Tags.THANKS;
     }

@@ -6,7 +6,7 @@
 package com.hackengine.beans;
 
 import com.hackengine.entities.Users;
-import com.hackengine.transactions.Operations;
+import com.hackengine.transactions.Transactions;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.faces.bean.ManagedBean;
@@ -62,6 +62,6 @@ public class RegisterBean implements Serializable {
     }
 
     public String register() {
-        return (new Operations()).register(new Users(username, password, mail, Calendar.getInstance()));
+        return (new Transactions()).register(new Users(username, password, mail, Calendar.getInstance()));
     }
 }

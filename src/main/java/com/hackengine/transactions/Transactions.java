@@ -18,7 +18,7 @@ import org.hibernate.cfg.Configuration;
  *
  * @author muslumoncel
  */
-public class Operations {
+public class Transactions {
 
     private static final SessionFactory factory = new Configuration().configure().buildSessionFactory();
     private static Session session = null;
