@@ -20,6 +20,7 @@ and open the template in the editor.
             <p:separator/>
             <p:inputText id="title" value="#{userBean.title}" required="true"
                          requiredMessage="Please Enter A Title For To-Do!"/>
+            <p:watermark for="title" value="Title *"/>
             <br></br>
             <p:commandButton id="saveTitle" value="Add Title" action="#{userBean.addToDo()}" ajax="true" update="todos"/>
             <p:separator/>
