@@ -12,7 +12,7 @@ import com.hackengine.tags.Tags;
 import com.hackengine.transactions.Transactions;
 import com.hackengine.utils.SessionUtils;
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -31,6 +31,7 @@ public class DetailsBean implements Serializable {
     private ToDo td = null;
     private Transactions transactions = null;
     private List<Details> allDetails;
+    private Date eventDate;
 
     @PostConstruct
     public void init() {
@@ -66,9 +67,17 @@ public class DetailsBean implements Serializable {
     public void setAllDetails(List<Details> allDetails) {
         this.allDetails = allDetails;
     }
+
+    public Date getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
     
     public void addSubEvent() {
-        transactions.mapSubEventToDo(td, new Details(event, priority, Calendar.getInstance()));
+        transactions.mapSubEventToDo(td, new Details(event, priority, eventDate));
         allDetails = Transactions.getAllDetails(td.getID());
     }
 }

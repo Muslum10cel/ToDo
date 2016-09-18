@@ -21,11 +21,14 @@ and open the template in the editor.
                 <p:outputLabel value="Event:"/>
                 <p:inputText value="#{detailsBean.event}"/>
 
-                <p:outputLabel value="Priority"/>
+                <p:outputLabel value="Priority:"/>
                 <p:selectOneMenu value="#{detailsBean.priority}">
                     <f:selectItems value="#{detailsBean.priorities}"/>
                 </p:selectOneMenu>
 
+                <p:outputLabel value="Event Date:"/>
+                <p:calendar value="#{detailsBean.eventDate}" pattern="MM/dd/yyyy HH:mm"/>
+                
                 <p:commandButton value="Add Event" action="#{detailsBean.addSubEvent()}" ajax="true" update="details"/>
             </p:panelGrid>
 

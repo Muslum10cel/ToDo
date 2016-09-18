@@ -9,7 +9,7 @@ import com.hackengine.db.ColumnNames;
 import com.hackengine.db.TableNames;
 import com.hackengine.priorities.Priority;
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -44,7 +44,7 @@ public class Details implements Serializable {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = ColumnNames.EVENT_DATE, nullable = false, updatable = true)
-    private Calendar eventDate;
+    private Date eventDate;
     
     @ManyToOne
     @JoinColumn(name = ColumnNames.TO_DO_ID)
@@ -53,7 +53,7 @@ public class Details implements Serializable {
     public Details() {
     }
 
-    public Details(String event, Priority priority, Calendar eventDate) {
+    public Details(String event, Priority priority, Date eventDate) {
         this.event = event;
         this.priority = priority;
         this.eventDate = eventDate;
@@ -71,7 +71,7 @@ public class Details implements Serializable {
         return priority;
     }
 
-    public Calendar getEventDate() {
+    public Date getEventDate() {
         return eventDate;
     }
 
@@ -91,7 +91,7 @@ public class Details implements Serializable {
         this.priority = priority;
     }
 
-    public void setEventDate(Calendar eventDate) {
+    public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
 
