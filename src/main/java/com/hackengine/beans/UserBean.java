@@ -65,6 +65,11 @@ public class UserBean {
         return Tags.DETAILS_PAGE;
     }
 
+    public void deleteToDo(ToDo td) {
+        operations.deleteToDo(td);
+        allToDos = Transactions.getAllToDos(user.getID());
+    }
+
     public String logOut() {
         Transactions.closeSession();
         SessionUtils.getSession().invalidate();

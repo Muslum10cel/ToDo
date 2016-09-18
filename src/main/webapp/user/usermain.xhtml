@@ -48,7 +48,7 @@ and open the template in the editor.
                 <p:column headerText="Action">
                     <p:commandLink value="Details" action="#{userBean.goToDetails(todo)}"/>
                     <p:outputLabel value="&#160;"/>
-                    <p:commandLink value="Delete"/>
+                    <p:commandLink value="Delete" action="#{userBean.deleteToDo(todo)}" ajax="true" update="todos"/>
                 </p:column>
             </p:dataTable>
         </h:form>

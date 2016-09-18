@@ -86,7 +86,11 @@ public class Transactions {
     }
 
     public void deleteToDo(ToDo todo) {
-
+        session.createQuery(Queries.DELETE_DETAILS).setInteger(0, todo.getID()).executeUpdate();
+        openSession();
+        session.beginTransaction();
+        session.delete(todo);
+        session.getTransaction().commit();
     }
 
     public static void closeSession() {
