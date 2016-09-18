@@ -7,7 +7,8 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,7 +21,35 @@ and open the template in the editor.
             <p:inputText id="title" value="#{userBean.title}" required="true"
                          requiredMessage="Please Enter A Title For To-Do!"/>
             <br></br>
-            <p:commandButton id="saveTitle" value="Add Title" action="#{userBean.addToDo()}" ajax="true"/>
+            <p:commandButton id="saveTitle" value="Add Title" action="#{userBean.addToDo()}" ajax="true" update="todos"/>
+            <p:separator/>
+            <br></br>
+            <p:dataTable
+                id="todos"
+                var="todo"
+                value="#{userBean.allToDos}"
+                paginator="true" 
+                rows="5" 
+                stickyHeader="true"
+                scrollable="true"
+                scrollHeight="150"
+                paginatorTemplate="{CurrentPageReport} 
+                {FirstPageLink} 
+                {PreviousPageLink} 
+                {PageLinks} 
+                {NextPageLink} 
+                {LastPageLink} 
+                {RowsPerPageDropdown}">
+                <f:facet name="header">All To Dos</f:facet>
+                <p:column headerText="Title">
+                    <p:outputLabel value="#{todo.title}"/>
+                </p:column>
+                <p:column headerText="Action">
+                    <p:commandLink value="Details" action="#{userBean.goToDetails(todo)}"/>
+                    <p:outputLabel value="&#160;"/>
+                    <p:commandLink value="Delete"/>
+                </p:column>
+            </p:dataTable>
         </h:form>
     </h:body>
 </html>

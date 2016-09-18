@@ -7,14 +7,18 @@ package com.hackengine.entities;
 
 import com.hackengine.db.ColumnNames;
 import com.hackengine.db.TableNames;
+import com.hackengine.tags.Tags;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -35,6 +39,9 @@ public class ToDo implements Serializable {
     @ManyToOne
     @JoinColumn(name = ColumnNames.USER_ID)
     private Users users;
+    
+   @OneToMany(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_TO_DO)
+   private List<Details> details;
 
     public ToDo(String title) {
         this.title = title;
@@ -65,5 +72,13 @@ public class ToDo implements Serializable {
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public void setDetails(List<Details> details) {
+        this.details = details;
+    }
+
+    public List<Details> getDetails() {
+        return details;
     }
 }

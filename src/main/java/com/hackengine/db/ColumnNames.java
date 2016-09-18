@@ -18,4 +18,10 @@ public class ColumnNames {
 
     public static final String TITLE = "TITLE";
     public static final String USER_ID = "USER_ID";
+
+    public static final String EVENT = "EVENT";
+    public static final String PRIORITY = "PRIORITY";
+    public static final String EVENT_DATE = "EVENT_DATE";
+
+    public static final String TO_DO_ID = "TO_DO_ID";
 }

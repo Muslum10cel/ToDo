@@ -12,4 +12,5 @@ package com.hackengine.queries;
 public class Queries {
 
     public static final String LOG_IN_QUERY = "FROM Users U WHERE U.username = ?";
+    public static final String GET_ALL_TODOS = "FROM ToDo TD WHERE TD.users.ID = ?";
 }

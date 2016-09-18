@@ -40,5 +40,10 @@
             <to-view-id>/thanks.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>details</from-outcome>
+            <to-view-id>/user/details.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
 </faces-config>

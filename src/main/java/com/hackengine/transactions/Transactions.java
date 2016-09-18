@@ -10,6 +10,7 @@ import com.hackengine.entities.Users;
 import com.hackengine.queries.Queries;
 import com.hackengine.tags.Tags;
 import com.hackengine.utils.SessionUtils;
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -57,6 +58,14 @@ public class Transactions {
         toDo.setUsers(users);
         users.getToDos().add(toDo);
         session.getTransaction().commit();
+    }
+
+    public static List<ToDo> getAllToDos(int id) {
+        return session.createQuery(Queries.GET_ALL_TODOS).setInteger(0, id).list();
+    }
+
+    public void deleteToDo(ToDo todo) {
+        
     }
 
     public static void closeSession() {

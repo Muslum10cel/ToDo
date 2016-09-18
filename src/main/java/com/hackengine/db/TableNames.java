@@ -13,4 +13,5 @@ public class TableNames {
 
     public static final String USER = "USERS";
     public static final String TO_DO = "TO_DO";
+    public static final String DETAILS = "DETAILS";
 }

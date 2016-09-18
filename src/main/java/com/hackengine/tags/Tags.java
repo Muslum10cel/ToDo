@@ -18,7 +18,11 @@ public class Tags {
     public static final String THANKS = "thanks";
     public static final String INDEX_PAGE = "/index.xhtml";
     public static final String USER_URL_PATTERN = "/user/*";
+    public static final String MAPPED_BY_TO_DO = "todos";
+    public static final String TO_DO = "todo";
+    public static final String DETAILS_PAGE = "details";
     public static final String ALGORITHM_FOR_HASH = "SHA-512";
     public static final String CHARSET_NAME = "UTF-8";
     public static final String FORMAT = "%064x";
+
 }
