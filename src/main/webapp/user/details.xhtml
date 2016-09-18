@@ -36,6 +36,18 @@ and open the template in the editor.
                 id="details"
                 var="detail"
                 value="#{detailsBean.allDetails}"
+                paginator="true" 
+                rows="5" 
+                stickyHeader="true"
+                scrollable="true"
+                scrollHeight="150"
+                paginatorTemplate="{CurrentPageReport} 
+                {FirstPageLink} 
+                {PreviousPageLink} 
+                {PageLinks} 
+                {NextPageLink} 
+                {LastPageLink} 
+                {RowsPerPageDropdown}"
                 >
                 <f:facet name="header">Event Details</f:facet>
 
