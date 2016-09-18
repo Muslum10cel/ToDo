@@ -75,9 +75,14 @@ public class DetailsBean implements Serializable {
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
-    
+
     public void addSubEvent() {
         transactions.mapSubEventToDo(td, new Details(event, priority, eventDate));
+        allDetails = Transactions.getAllDetails(td.getID());
+    }
+
+    public void deleteSubEvent(Details detail) {
+        transactions.deleteDetails(detail);
         allDetails = Transactions.getAllDetails(td.getID());
     }
 }
