@@ -15,5 +15,41 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div>Details xhtml</div>
+        <p:panelGrid columns="2">
+            <f:facet name="header">Add Sub Events</f:facet>
+            <p:outputLabel value="Event:"/>
+            <p:inputText value="#{detailsBean.event}"/>
+
+            <p:selectOneMenu value="#{detailsBean.priority}">
+                <f:selectItems value="#{detailsBean.priorities}"/>
+            </p:selectOneMenu>
+
+            <p:commandButton value="Add Event" action="#{detailsBean.addSubEvent()}" ajax="true" update="details"/>
+        </p:panelGrid>
+
+        <p:dataTable 
+            id="details"
+            var="detail"
+            value="#{detailsBean.allDetails}"
+            >
+            <f:facet name="header">Event Details</f:facet>
+
+            <p:column headerText="Event">
+                <p:outputLabel value="#{detail.event}"/>
+            </p:column>
+
+            <p:column headerText="Date">
+                <p:outputLabel value="#{detail.eventDate}"/>
+            </p:column>
+
+            <p:column headerText="Priority">
+                <p:outputLabel value="#{detail.priority}"/>
+            </p:column>
+
+            <p:column headerText="Action">
+                <p:commandLink value="Delete"/>
+            </p:column>
+        </p:dataTable>
+
     </h:body>
 </html>

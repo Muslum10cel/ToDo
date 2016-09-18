@@ -5,6 +5,7 @@
  */
 package com.hackengine.transactions;
 
+import com.hackengine.entities.Details;
 import com.hackengine.entities.ToDo;
 import com.hackengine.entities.Users;
 import com.hackengine.queries.Queries;
@@ -64,8 +65,28 @@ public class Transactions {
         return session.createQuery(Queries.GET_ALL_TODOS).setInteger(0, id).list();
     }
 
+    public static List<Details> getAllDetails(int id) {
+        return session.createQuery(Queries.GET_ALL_DETAILS).setInteger(0, id).list();
+    }
+
+    public void mapSubEventToDo(ToDo td, Details details) {
+        openSession();
+        session.beginTransaction();
+        session.save(details);
+        details.setTodos(td);
+        td.getDetails().add(details);
+        session.getTransaction().commit();
+    }
+
+    public void deleteDetails(Details details) {
+        openSession();
+        session.beginTransaction();
+        session.delete(details);
+        session.getTransaction().commit();
+    }
+
     public void deleteToDo(ToDo todo) {
-        
+
     }
 
     public static void closeSession() {

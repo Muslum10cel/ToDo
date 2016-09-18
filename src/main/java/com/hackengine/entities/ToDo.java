@@ -39,9 +39,9 @@ public class ToDo implements Serializable {
     @ManyToOne
     @JoinColumn(name = ColumnNames.USER_ID)
     private Users users;
-    
-   @OneToMany(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_TO_DO)
-   private List<Details> details;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = Tags.MAPPED_BY_TO_DO)
+    private List<Details> details;
 
     public ToDo(String title) {
         this.title = title;

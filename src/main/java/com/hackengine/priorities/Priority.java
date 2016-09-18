@@ -9,6 +9,6 @@ package com.hackengine.priorities;
  *
  * @author muslumoncel
  */
-public enum Priorities {
+public enum Priority {
     CRITICAL, HIGH, NORMAL, LOW
 }

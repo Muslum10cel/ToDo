@@ -7,7 +7,7 @@ package com.hackengine.entities;
 
 import com.hackengine.db.ColumnNames;
 import com.hackengine.db.TableNames;
-import com.hackengine.priorities.Priorities;
+import com.hackengine.priorities.Priority;
 import java.io.Serializable;
 import java.util.Calendar;
 import javax.persistence.Column;
@@ -40,7 +40,7 @@ public class Details implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = ColumnNames.PRIORITY, nullable = false, updatable = true)
-    private Priorities priority;
+    private Priority priority;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = ColumnNames.EVENT_DATE, nullable = false, updatable = true)
@@ -53,7 +53,7 @@ public class Details implements Serializable {
     public Details() {
     }
 
-    public Details(String event, Priorities priority, Calendar eventDate) {
+    public Details(String event, Priority priority, Calendar eventDate) {
         this.event = event;
         this.priority = priority;
         this.eventDate = eventDate;
@@ -67,7 +67,7 @@ public class Details implements Serializable {
         return event;
     }
 
-    public Priorities getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
@@ -87,7 +87,7 @@ public class Details implements Serializable {
         this.event = event;
     }
 
-    public void setPriority(Priorities priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
