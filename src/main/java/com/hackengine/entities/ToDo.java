@@ -81,4 +81,9 @@ public class ToDo implements Serializable {
     public List<Details> getDetails() {
         return details;
     }
+
+    @Override
+    public String toString() {
+        return "ToDo{" + "title=" + title + ", users=" + users + '}';
+    }
 }

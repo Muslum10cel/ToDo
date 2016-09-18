@@ -98,4 +98,9 @@ public class Details implements Serializable {
     public void setTodos(ToDo todos) {
         this.todos = todos;
     }
+
+    @Override
+    public String toString() {
+        return "Details{" + "event=" + event + ", priority=" + priority + ", eventDate=" + eventDate + '}';
+    }
 }
